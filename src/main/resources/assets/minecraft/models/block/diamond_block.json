@@ -1,0 +1,11 @@
+{
+  "parent": "block/diamond_block",
+  "overrides": [
+    {
+      "predicate": {
+        "custom_model_data": 2001
+      },
+      "model": "lorfororl/lab_core"
+    }
+  ]
+}

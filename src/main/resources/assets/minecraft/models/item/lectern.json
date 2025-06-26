@@ -1,0 +1,11 @@
+{
+  "parent": "block/lectern",
+  "overrides": [
+    {
+      "predicate": {
+        "custom_model_data": 2002
+      },
+      "model": "lorfororl/research_terminal"
+    }
+  ]
+}

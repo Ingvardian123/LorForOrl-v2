@@ -1,0 +1,51 @@
+name: LorForOrl
+version: 2.0.0
+main: com.lorfororl.LorForOrlPlugin
+api-version: 1.21
+author: LorForOrl
+description: Продвинутый плагин ядерных технологий с автоматизацией и визуальными эффектами
+website: https://github.com/lorfororl/LorForOrl
+
+commands:
+  lorfororl:
+    description: Основные команды плагина LorForOrl
+    usage: /lorfororl <подкоманда>
+    aliases: [lfo, nuclear]
+    permission: lorfororl.use
+  achievements:
+    description: Система достижений
+    usage: /achievements [list|progress]
+    aliases: [ach]
+    permission: lorfororl.use
+
+permissions:
+  lorfororl.use:
+    description: Базовое использование плагина
+    default: true
+  lorfororl.admin:
+    description: Административные команды
+    default: op
+  lorfororl.build:
+    description: Строительство структур
+    default: true
+  lorfororl.research:
+    description: Проведение исследований
+    default: true
+  lorfororl.bypass:
+    description: Обход всех ограничений
+    default: op
+  lorfororl.miners.3:
+    description: Максимум 3 автошахтера
+    default: true
+  lorfororl.miners.5:
+    description: Максимум 5 автошахтеров
+    default: false
+  lorfororl.miners.10:
+    description: Максимум 10 автошахтеров
+    default: false
+  lorfororl.miners.unlimited:
+    description: Неограниченное количество автошахтеров
+    default: op
+
+depend: []
+softdepend: [Vault, WorldGuard, PlaceholderAPI]

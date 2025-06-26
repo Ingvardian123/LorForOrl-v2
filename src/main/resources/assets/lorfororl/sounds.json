@@ -1,0 +1,29 @@
+{
+  "geiger_low": {
+    "sounds": [
+      {
+        "name": "lorfororl/geiger_low",
+        "volume": 0.3,
+        "pitch": 1.5
+      }
+    ]
+  },
+  "geiger_medium": {
+    "sounds": [
+      {
+        "name": "lorfororl/geiger_medium",
+        "volume": 0.6,
+        "pitch": 1.0
+      }
+    ]
+  },
+  "geiger_high": {
+    "sounds": [
+      {
+        "name": "lorfororl/geiger_high",
+        "volume": 1.0,
+        "pitch": 0.5
+      }
+    ]
+  }
+}

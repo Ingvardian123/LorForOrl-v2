@@ -1,0 +1,14 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "item/clock_00"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "custom_model_data": 1004
+      },
+      "model": "lorfororl/geiger_counter"
+    }
+  ]
+}

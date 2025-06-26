@@ -1,0 +1,352 @@
+# LorForOrl v2.0 - Конфигурация плагина
+# Ядерные технологии будущего в Minecraft
+
+# === ОСНОВНЫЕ НАСТРОЙКИ ===
+plugin:
+  version: "2.0.0"
+  debug: false
+  language: "ru"
+  auto-save-interval: 300 # секунд
+  performance-monitoring: true
+
+# === СИСТЕМА РАДИАЦИИ ===
+radiation:
+  enabled: true
+  natural-decay-rate: 0.01 # процент в минуту
+  max-radiation-level: 10.0
+  death-threshold: 8.0
+  
+  effects:
+    nausea-threshold: 0.5
+    damage-threshold: 1.5
+    blindness-threshold: 3.0
+    damage-per-tick: 0.5
+  
+  protection:
+    hazmat-suit: 0.9 # 90% защита
+    power-armor: 0.95 # 95% защита
+    
+  zones:
+    max-zones: 50
+    cleanup-interval: 600 # секунд
+    particle-effects: true
+
+# === ЭНЕРГЕТИЧЕСКАЯ СИСТЕМА ===
+energy:
+  enabled: true
+  max-energy-per-player: 100000
+  energy-transfer-rate: 100 # единиц в тик
+  
+  sources:
+    nuclear-reactor:
+      base-generation: 1000 # единиц в тик
+      fuel-consumption: 1 # единиц топлива в минуту
+    solar-panel:
+      base-generation: 50 # единиц в тик (днем)
+      weather-modifier: 0.5 # множитель в дождь
+    generator:
+      lightning-energy: 10000 # единиц за удар молнии
+  
+  consumers:
+    power-armor:
+      normal-mode: 1
+      combat-mode: 3
+      stealth-mode: 2
+      shield-mode: 6
+    railgun:
+      standard-shot: 50
+      piercing-shot: 75
+      explosive-shot: 100
+      shotgun-shot: 80
+      overcharge-shot: 200
+      emp-shot: 150
+    auto-miner:
+      energy-per-block: 50
+      idle-consumption: 5
+    energy-shield:
+      idle-consumption: 10
+      protection-cost: 100
+
+# === СИСТЕМА ИССЛЕДОВАНИЙ ===
+research:
+  enabled: true
+  real-time-research: true
+  laboratory-authorization-required: true
+  
+  projects:
+    nuclear-reactor:
+      duration-hours: 240 # 10 дней
+      resources:
+        iron-blocks: 500
+        uranium-blocks: 3
+    power-armor:
+      duration-hours: 120 # 5 дней
+      resources:
+        iron-blocks: 300
+        netherite-ingots: 20
+    railgun:
+      duration-hours: 96 # 4 дня
+      resources:
+        copper-blocks: 200
+        lightning-rods: 50
+    hazmat-suit:
+      duration-hours: 72 # 3 дня
+      resources:
+        leather: 200
+        redstone: 150
+    electric-vehicle:
+      duration-hours: 48 # 2 дня
+      resources:
+        iron-blocks: 100
+        copper-blocks: 50
+    auto-miner:
+      duration-hours: 60 # 2.5 дня
+      resources:
+        iron-blocks: 80
+        diamond-pickaxes: 5
+    energy-shield:
+      duration-hours: 84 # 3.5 дня
+      resources:
+        diamond-blocks: 40
+        beacons: 8
+
+# === АВТОМАТИЗАЦИЯ ===
+automation:
+  auto-miners:
+    enabled: true
+    max-per-player:
+      default: 3
+      vip: 5
+      premium: 10
+      unlimited: -1
+    
+    settings:
+      max-radius: 10
+      max-depth: 20
+      energy-consumption: 50 # за блок
+      collection-radius: 5 # радиус поиска сундуков
+      
+    modes:
+      selective: true # только ценные блоки
+      ores-only: true # только руды
+      all-blocks: true # все блоки
+    
+    visual-effects:
+      mining-particles: true
+      laser-effects: true
+      hologram-info: true
+
+# === ЗАЩИТНЫЕ СИСТЕМЫ ===
+protection:
+  energy-shields:
+    enabled: true
+    max-per-player: 2
+    max-radius: 50
+    min-radius: 5
+    
+    modes:
+      defensive: # блокирует снаряды
+        energy-cost: 100 # за блокировку
+      aggressive: # отталкивает игроков
+        energy-cost: 150 # за отталкивание
+        knockback-force: 2.0
+      stealth: # невидимый щит
+        energy-cost: 200 # за блокировку
+        
+    visual-effects:
+      sphere-particles: true
+      impact-effects: true
+      energy-rings: true
+
+# === ОРУЖЕЙНЫЕ СИСТЕМЫ ===
+weapons:
+  railgun:
+    enabled: true
+    modes:
+      standard:
+        damage: 15
+        range: 100
+        cooldown: 3 # секунд
+        ammo: "iron_ingot"
+        ammo-count: 1
+      piercing:
+        damage: 20
+        range: 150
+        cooldown: 4
+        ammo: "iron_ingot"
+        ammo-count: 2
+      explosive:
+        damage: 12
+        range: 80
+        cooldown: 6
+        ammo: "tnt"
+        ammo-count: 1
+        explosion-power: 3
+      shotgun:
+        damage: 8
+        projectiles: 5
+        range: 60
+        cooldown: 5
+        ammo: "iron_nugget"
+        ammo-count: 8
+      overcharge:
+        damage: 35
+        range: 200
+        cooldown: 10
+        ammo: "diamond"
+        ammo-count: 1
+      emp:
+        damage: 5
+        range: 120
+        cooldown: 8
+        ammo: "redstone_block"
+        ammo-count: 1
+        emp-radius: 10
+  
+  nuclear-bombs:
+    enabled: true
+    max-per-player: 1
+    explosion-power: 50
+    radiation-radius: 100
+    radiation-duration: 3600 # секунд
+
+# === ВИЗУАЛЬНЫЕ ЭФФЕКТЫ ===
+visual:
+  particles:
+    enabled: true
+    density: 1.0 # множитель количества частиц
+    render-distance: 64
+    
+  holograms:
+    enabled: true
+    update-interval: 20 # тиков
+    max-distance: 32
+    
+  cinematics:
+    enabled: true
+    auto-play: true
+    skip-permission: "lorfororl.admin"
+    
+  hud:
+    enabled: true
+    update-interval: 10 # тиков
+    show-coordinates: false
+    
+  sounds:
+    enabled: true
+    volume: 1.0
+    3d-audio: true
+    echo-effects: true
+
+# === СИСТЕМА ДОСТИЖЕНИЙ ===
+achievements:
+  enabled: true
+  broadcast-achievements: true
+  reward-experience: true
+  
+  categories:
+    radiation: true
+    production: true
+    research: true
+    energy: true
+    combat: true
+    building: true
+    automation: true
+    protection: true
+
+# === БАЛАНС И ОГРАНИЧЕНИЯ ===
+balance:
+  structures:
+    max-centrifuges: 5
+    max-reactors: 2
+    max-laboratories: 3
+    max-generators: 5
+    
+  cooldowns:
+    building-cooldown: 30 # секунд
+    research-start-cooldown: 60
+    
+  limits:
+    actions-per-minute: 60
+    max-radiation-zones: 20
+    
+  efficiency:
+    centrifuge-base: 1.0
+    experience-bonus: 0.5 # максимальный бонус
+    diminishing-returns: true
+
+# === УВЕДОМЛЕНИЯ ===
+notifications:
+  enabled: true
+  
+  types:
+    action-bar: true
+    chat: true
+    title: true
+    gui: true
+    
+  auto-warnings:
+    radiation: true
+    low-energy: true
+    reactor-overheat: true
+    research-complete: true
+    building-complete: true
+    miner-full: true
+    shield-low-energy: true
+
+# === ИНТЕГРАЦИИ ===
+integrations:
+  vault:
+    enabled: true
+    economy-rewards: true
+    
+  worldguard:
+    enabled: true
+    respect-regions: true
+    
+  placeholderapi:
+    enabled: true
+    register-placeholders: true
+
+# === БЕЗОПАСНОСТЬ ===
+security:
+  anti-grief:
+    enabled: true
+    structure-protection: true
+    
+  rate-limiting:
+    enabled: true
+    max-actions-per-minute: 60
+    
+  validation:
+    strict-item-checking: true
+    prevent-duplication: true
+    
+  authorization:
+    laboratory-whitelist: []
+    # Добавьте UUID игроков, которые могут создавать лаборатории
+    # Пример: ["550e8400-e29b-41d4-a716-446655440000"]
+
+# === ПРОИЗВОДИТЕЛЬНОСТЬ ===
+performance:
+  async-processing: true
+  chunk-loading: false
+  max-tps-impact: 0.5
+  
+  cleanup:
+    interval: 600 # секунд
+    remove-empty-zones: true
+    optimize-data: true
+    
+  caching:
+    player-data: true
+    structure-data: true
+    cache-duration: 300 # секунд
+
+# === ОТЛАДКА ===
+debug:
+  log-level: "INFO" # DEBUG, INFO, WARN, ERROR
+  log-player-actions: false
+  log-energy-transfers: false
+  log-research-progress: false
+  performance-metrics: false
